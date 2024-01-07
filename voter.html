@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="voter.css">
+    <title>Voter</title>
+</head>
+<body>
+    <header class="conteneur">
+        <h1>Questionnaire de vote</h1>
+    </header>
+
+    <main class="conteneur">
+        <ol class="questionnaire">
+            <li>
+                Le meilleur Antivirus pour vous et:
+                <div>
+                    <select name="antivirus-select">
+                        <option value="VPN GATE">VPN GATE</option>
+                        <option value="SuperAntiSpyWare">SuperAntiSpyWare</option>
+                        <option value="Avira Free Security" selected>Avira Free Security</option>
+                    </select>
+                </div>
+            </li>
+
+            <li>
+                Votre degré de satisfaction est:
+                <div>
+                    <span>0%</span>
+                    <div class="satisfaction-container">
+                        <span class="satisfaction-valeur">50%</span>
+                        <input type="range" id="satisfaction-input" min="0" max="100">
+                    </div>
+                    <span>100%</span>
+                </div>
+            </li>
+
+            <li>
+                Avez vous déjà utilisé un autre antivirus ?:
+                <div>
+                    <div>
+                        <input type="radio" name="deja" id="oui">
+                        <label for="oui">Oui</label>
+
+                        <input type="radio" name="deja" id="non">
+                        <label for="non">Non</label>
+                    </div>
+
+                    <div>
+                        <button>Envoyer</button>
+                        <button>Annuler</button>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </main>
+
+    <script>
+        const input = document.querySelector("input[type='range']");
+        const ticket = document.querySelector(".satisfaction-valeur");
+        
+        input.oninput = (e) => {
+            const ticket_pos = input.value / input.max;
+            const space = input.offsetWidth - ticket.offsetWidth;
+            
+            ticket.textContent = `${input.value}%`;
+            ticket.style.left = (ticket_pos * space) + "px";
+        };
+    </script>
+</body>
+</html>

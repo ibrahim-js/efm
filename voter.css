@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap');
+
+:root {
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi: 600;
+    --fw-bold: 700;
+    --fw-extra: 800;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+button,
+input {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/* Classes utilitaires */
+.conteneur {
+    --width: 1024px;
+    --padding: 1rem;
+
+    width: min(
+        var(--width),
+        calc(100% - var(--padding) * 2)
+    );
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+/* Custom */
+header {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+header > h1 {
+    text-align: center;
+}
+
+.questionnaire {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: max-content;
+}
+
+li {
+    font-size: 1.25rem;
+    font-weight: var(--fw-bold);
+}
+
+li > div {
+    width: max-content;
+    margin: 0 auto;
+}
+
+select {
+    padding: .25rem .5rem;
+}
+
+li:nth-of-type(2) > div {
+    display: flex;
+    gap: 1rem;
+    padding: 3rem 0 1rem;
+}
+
+li:nth-of-type(2) > div > span {
+    font-weight: var(--fw-medium);
+    font-size: 1.15rem;
+}
+
+.satisfaction-container {
+    position: relative;
+}
+
+.satisfaction-container > span {
+    position: absolute;
+    top: -2rem;
+    left: calc(155px * 0.5);
+    font-size: .85rem;
+    box-shadow: 0 2px 6px hsl(0 0% 0% / .2);
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+}
+
+input[type="range"] {
+    width: 200px;
+}
+
+#oui {
+    margin-left: 2.5rem;
+}
+
+#oui + label {
+    margin-right: 1rem;
+}
+
+button {
+    padding: .5rem 2rem;
+    border: 1px solid black;
+    background: transparent;
+    cursor: pointer;
+}
